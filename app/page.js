@@ -1,12 +1,14 @@
 import Link from "next/link";
 
+const linkstyles = "underline text-cyan-600 hover:text-cyan-300"
+
 export default function Home() {
   return (
-    <main className="flex flex-col items-left justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-left justify-between text-sm">
-        <h1 className="text-4xl font-bold mb-5 items-left">CPRG 306: Web Development 2 - Assignments</h1>
+    <main >
+      <div >
+        <h1 className="text-4xl font-bold">CPRG 306: Web Development 2 - Assignments</h1>
         <div className="text-lg">
-        <week-2 />
+        <li><Link className={linkstyles} href="./week-2">Assignment Week 2</Link></li>
         </div>
       </div>
     </main>
