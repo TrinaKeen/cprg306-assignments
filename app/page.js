@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <main>
       <h1>Shopping List</h1>
-      <Link href={StudentInfo}></Link>
+      <Link href="./week-2">student-info</Link>
     </main>
   );
 }
