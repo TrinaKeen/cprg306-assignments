@@ -2,10 +2,10 @@ import React from 'react';
 import ItemList from './item-list';
 import Item from './item';
 
-const Page = () => {
-  return (
-    <main className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Shopping List</h1>
+export default function Page() {
+    return (
+    <main >
+      <h1 >Shopping List</h1>
       <ItemList />
     </main>
   );
