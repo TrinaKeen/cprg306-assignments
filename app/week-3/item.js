@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function StudentInfo() {
+export default function Item() {
   const Item = ({ name, quantity, category }) => {
    return (
      <li className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md mb-2">
