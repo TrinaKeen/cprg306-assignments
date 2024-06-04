@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './item';
 
-export default function ItemList() {
+const ItemList = () => {
   const items = [
     { name: "milk, 4 L 🥛", quantity: 1, category: "dairy" },
     { name: "bread 🍞", quantity: 2, category: "bakery" },
@@ -18,7 +18,7 @@ export default function ItemList() {
   ];
 
   return (
-    <ul >
+    <ul className="p-4 bg-gray-100 rounded-lg">
       {items.map((item, index) => (
         <Item
           key={index}
@@ -29,4 +29,6 @@ export default function ItemList() {
       ))}
     </ul>
   );
-}
+};
+
+export default ItemList;
