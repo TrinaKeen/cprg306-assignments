@@ -10,6 +10,8 @@ export default function Home() {
         <div className="text-lg">
         <li><Link className={linkstyles} href="./week-1">Assignment Week 1</Link></li>
         <li><Link className={linkstyles} href="./week-2">Assignment Week 2</Link></li>
+        <li><Link className={linkstyles} href="./week-3">Assignment Week 3</Link></li>
+        <li><Link className={linkstyles} href="./week-4">Assignment Week 4</Link></li>
         </div>
       </div>
     </main>
