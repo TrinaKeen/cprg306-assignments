@@ -7,7 +7,7 @@ const Item = ({ name, quantity, category }) => {
         <h2 className="text-lg font-semibold">{name}</h2>
         <p className="text-sm text-gray-600">{category}</p>
       </div>
-      <span className="text-blue-500 font-bold">{quantity}</span>
+      <span className="text-blue-200 font-bold">{quantity}</span>
     </li>
   );
 };
