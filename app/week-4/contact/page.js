@@ -44,7 +44,7 @@ export default function Contact(){
            <form onSubmit={handleSubmit} className="p-5">
             <div className="">
                 <label className="block" for="full_name">Full Name:</label>
-                <input id="full_name" type="text" name="full_name" onChange={handleNameChange} value={fullName} className="text-black"/>
+                <input id="full_name" type="text" name="full_name" onChange={handleNameChange} value={fullName} className="text-black" required/>
             </div>
                 
             <div className="">
