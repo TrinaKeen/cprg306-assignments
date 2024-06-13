@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 
-export default function NewItem(){
+export default function (){
 
-    const [name, setName] =  useState(" ");
+    const [name, setName] =  useState("");
     const [quantity, setQuantity] =  useState("1");
     const [category , setCategory] =  useState("Produce");
 
@@ -19,7 +19,7 @@ export default function NewItem(){
             userCategory : category,
 
         }
-        alert(`Added Item:${FormData.userName} , Quantity: ${FormData.userQuantity} , Category: ${FormData.userCategory}`);
+        alert(`Added Item: ${FormData.userName} , Quantity: ${FormData.userQuantity} , Category: ${FormData.userCategory}`);
 
       
     }
@@ -39,8 +39,8 @@ export default function NewItem(){
     return(
         <main className="flex justify-center w-full">
             <form onSubmit={handleSubmit} className="p-2 m-4 bg-slate-900 text-black max-w-sm w-full">
-            <div class="mb-2">
-            <input type="text" placeholder="Item name" required onChange={handleNameChange} value={name} class="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg font-sans" />
+            <div className="mb-2">
+                <input id="name" type="text" placeholder="Item Name" onChange={handleNameChange} value={name} className="text-black w-full mt-1 border-2 border-gray-300 p-2 rounded-lg font-sans" required /> 
             </div>
                 
             <div className="flex justify-between">
@@ -61,16 +61,16 @@ export default function NewItem(){
             <option value="other">Other</option>
           </select>
                 
-        </div>
+            </div>
 
             
             
 
-        <div className="flex justify-center">           
-        <button className="w-full mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">+</button>
-        </div>
+            <div className="flex justify-center">           
+            <button className="w-full mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">+</button>
+            </div>
 
-        </form>
+           </form>
 
         </main>
     )
