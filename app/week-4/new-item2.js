@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 
-export default function NewItem(){
+export default function NewItem2(){
 
     const [name, setName] =  useState(" ");
     const [quantity, setQuantity] =  useState("1");
