@@ -1,39 +1,22 @@
-"use client"
+"use client";
 
-import { useState } from "react";
-import dogData from'./dogs.json';
-import DogList from "./dog-list";
-import DogForm from "./dog-form";
-import { Sedan } from "next/font/google";
+import React, { useState } from 'react';
+import NewItem from './new-item';
+import ItemList from './item-list';
+import itemsData from './items.json';
 
-export default function DogPage(){
+export default function ItemPage() {
+    const [items, setItems] = useState(itemsData);
 
-    const [dogList, setDogList] = useState( dogData.map((dog) => ({...dog})));
+    const handleAddItem = (newItem) => {
+        setItems([...items, newItem]);
+    };
 
-    //Let dogArray = dogData.map((dog) => ({...dog}));
-
-    const[isDogFormOpen, setDogFormOpen] = useState(false);
-
-    const handleCreateDog = (newDog) => {
-        setDogList([...dogList, newDog]);
-    }
-
-    const openDogForm = () => setDogFormOpen(true) ;
-    const closeDogForm = () => setDogFormOpen(false);
-
-    return(
-      <main>
-        <h1>Dogs for Adoption</h1>
-        {
-            isDogFormOpen && (
-                <DogForm closeFormFunc={closeDogForm} onCreateDog={handleCreateDog}/>
-            )
-        }
-       
-        <DogList listOfDogs={dogList}/>
-        <div>
-            <button onClick={openDogForm}>Add Dog for Adoption</button>
-        </div>
-      </main>
+    return (
+        <main className="p-10 bg-slate-950">
+            <h1 className="text-3xl font-bold m-2">Shopping List</h1>
+         
+            <ItemList items={items} />
+        </main>
     );
 }
