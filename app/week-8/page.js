@@ -19,6 +19,7 @@ function Page() {
 
   return (
     <div style={{ display: "flex" }}>
+        <h1>Shopping Lists</h1>
       <div>
         <NewItem setItemList={setItemList} />
         <ItemList items={itemList} onItemSelect={handleItemSelect} />

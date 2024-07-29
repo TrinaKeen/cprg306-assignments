@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+"use client";
 
-function NewItem({ onAddItem }) {
+import React, { useState } from 'react';
+
+export default function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("1");
     const [category, setCategory] = useState("Produce");
@@ -9,22 +10,33 @@ function NewItem({ onAddItem }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        // Prepare the new item object
         const newItem = {
-            id: Math.random().toString(36).substr(2, 9),
-            name: name.trim(),
-            quantity: parseInt(quantity),
-            category: category
+            id: Math.random().toString(36).substr(2, 9), // Generate a random ID
+            name: name.trim(),  // Trim whitespace from the name
+            quantity: parseInt(quantity), // Convert quantity to integer
+            category: category // Use selected category
         };
 
-        if (typeof onAddItem === 'function') {
-            onAddItem(newItem);
-        } else {
-            console.error("onAddItem is not a function");
-        }
+        // Call the onAddItem prop function to add the new item
+        onAddItem(newItem);
 
+        // Clear the form inputs after adding the item
         setName("");
         setQuantity("1");
         setCategory("Produce");
+    };
+
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
+
+    const handleQuantityChange = (event) => {
+        setQuantity(event.target.value);
+    };
+
+    const handleCategoryChange = (event) => {
+        setCategory(event.target.value);
     };
 
     return (
@@ -35,7 +47,7 @@ function NewItem({ onAddItem }) {
                         id="name"
                         type="text"
                         placeholder="Item Name"
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={handleNameChange}
                         value={name}
                         className="text-black w-full mt-1 border-2 border-gray-300 p-2 rounded-lg font-sans"
                         required
@@ -44,7 +56,7 @@ function NewItem({ onAddItem }) {
 
                 <div className="flex justify-between">
                     <input
-                        onChange={(e) => setQuantity(e.target.value)}
+                        onChange={handleQuantityChange}
                         id="quantity"
                         type="number"
                         min="1"
@@ -56,7 +68,7 @@ function NewItem({ onAddItem }) {
                     <select
                         id="category"
                         className="ml-1 border-2 border-gray-300 p-2 rounded-lg font-sans"
-                        onChange={(e) => setCategory(e.target.value)}
+                        onChange={handleCategoryChange}
                         value={category}
                         required
                     >
@@ -86,9 +98,3 @@ function NewItem({ onAddItem }) {
         </main>
     );
 }
-
-NewItem.propTypes = {
-    onAddItem: PropTypes.func.isRequired
-};
-
-export default NewItem;
