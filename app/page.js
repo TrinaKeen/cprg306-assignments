@@ -15,7 +15,7 @@ export default function Home() {
         <li><Link className={linkstyles} href="./week-5">Assignment Week 5 - Handling Lists </Link></li>
         <li><Link className={linkstyles} href="./week-6">Assignment Week 6 - Managing State </Link></li>
         <li><Link className={linkstyles} href="./week-7">Assignment Week 7 - Fetching Data </Link></li>
-        <li><Link className={linkstyles} href="./week-8.1">Assignment Week 8 - Fetching Data with API MealIdeas</Link></li>
+        <li><Link className={linkstyles} href="./week-8">Assignment Week 8 - Fetching Data with API MealIdeas</Link></li>
         <li><Link className={linkstyles} href="./week-10">Assignment Week 10 - Firebase Auth and Cloud Firestore </Link></li>
         </div>
       </div>

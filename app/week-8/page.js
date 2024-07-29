@@ -3,30 +3,33 @@ import { useState } from "react";
 import NewItem from "./new-item";
 import ItemList from "./item-list";
 import MealIdeas from "./meal-ideas";
-import items from "./items.json";
+import itemsData from "./items.json";
 
-function Page() {
-  const [itemList, setItemList] = useState(items);
+export default function Page() {
+  const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
 
+  const handleAddItem = (newItem) => {
+    setItems([...items, newItem]);
+  };
+
   const handleItemSelect = (item) => {
-    const cleanedItem = item.name
-      .split(",")[0]
-      .trim()
-      .replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|[\u2011-\u26FF])/g, "");
-    setSelectedItemName(cleanedItem);
+    // Clean up the item name
+    const cleanedName = item.name.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '').split(',')[0].trim();
+    setSelectedItemName(cleanedName);
   };
 
   return (
-    <div style={{ display: "flex" }}>
-        <h1>Shopping Lists</h1>
-      <div>
-        <NewItem setItemList={setItemList} />
-        <ItemList items={itemList} onItemSelect={handleItemSelect} />
+    <div className="flex">
+      <div className="w-1/4 p-10">
+      <h1 className="text-3xl font-bold m-2">Shopping List</h1>
+        <NewItem onAddItem={handleAddItem} />
+        <ItemList items={items} onItemSelect={handleItemSelect} />
       </div>
-      <MealIdeas ingredient={selectedItemName} />
+      <div className="w-1/2 flex-2 p-10">
+        <MealIdeas ingredient={selectedItemName} />
+        
+      </div>
     </div>
   );
 }
-
-export default Page;

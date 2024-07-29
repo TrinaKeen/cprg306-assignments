@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+"use client";
 
-function NewItem({ onAddItem }) {
+import React, { useState } from 'react';
+
+export default function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("1");
     const [category, setCategory] = useState("Produce");
@@ -10,17 +11,13 @@ function NewItem({ onAddItem }) {
         event.preventDefault();
 
         const newItem = {
-            id: Math.random().toString(36).substr(2, 9),
-            name: name.trim(),
+            id: Math.random().toString(36).substr(2, 9), 
+            name: name.trim(),  
             quantity: parseInt(quantity),
-            category: category
+            category: category // 
         };
 
-        if (typeof onAddItem === 'function') {
-            onAddItem(newItem);
-        } else {
-            console.error("onAddItem is not a function");
-        }
+        onAddItem(newItem);
 
         setName("");
         setQuantity("1");
@@ -86,9 +83,3 @@ function NewItem({ onAddItem }) {
         </main>
     );
 }
-
-NewItem.propTypes = {
-    onAddItem: PropTypes.func.isRequired
-};
-
-export default NewItem;
