@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Item from './item';
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState('name');
 
     // Helper function to capitalize the first letter of a string
@@ -43,7 +43,7 @@ export default function ItemList({ items }) {
 
             <div className='p-2 m-4 max-w-sm grid grid-cols-1 gap-5'>
                 {sortedItems.map(item => (
-                    <div key={item.id} className="p-4 rounded-md">
+                    <div key={item.id} className="p-4 rounded-md cursor-pointer" onClick={() => onItemSelect(item)}>
                         <Item itemObj={item} />
                     </div>
                 ))}
