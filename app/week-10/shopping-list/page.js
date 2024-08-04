@@ -5,7 +5,7 @@ import ItemList from "./item-list";
 import MealIdeas from "./meal-ideas";
 import itemsData from "./items.json";
 
-export default function HomePage() {
+export default function ShoppingPage() {
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState("");
 

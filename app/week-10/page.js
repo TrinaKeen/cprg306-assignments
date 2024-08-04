@@ -2,11 +2,13 @@
 
 import { useUserAuth } from './_utils/auth-context';
 import { useState } from 'react';
-import Link from 'next/link';  // Import Link from 'next/link'
+import { useRouter } from 'next/navigation'; // Correct import for router
+import Link from 'next/link'; // Import Link for navigation
 
 const HomePage = () => {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter(); // Initialize the router
 
   const handleSignIn = async () => {
     setIsLoading(true);
@@ -30,6 +32,11 @@ const HomePage = () => {
     }
   };
 
+  const handleNavigation = () => {
+    console.log('Navigating to /shopping-list'); // Debug log
+    router.push('/shopping-list'); // Navigate to the shopping list page
+  };
+
   return (
     <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Shopping List App</h1>
@@ -45,10 +52,8 @@ const HomePage = () => {
             {isLoading ? 'Signing out...' : 'Sign out'}
           </button>
           <br />
-          <Link href="/shopping-list">
-            <button>
+          <Link href="./week-10/shopping-list">
               Continue to your Shopping List
-            </button>
           </Link>
         </div>
       )}
