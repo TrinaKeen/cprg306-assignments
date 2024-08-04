@@ -5,23 +5,23 @@ import React, { useState } from 'react';
 export default function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("1");
-    const [category, setCategory] = useState("Produce");
+    const [category, setCategory] = useState("produce");
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         const newItem = {
-            id: Math.random().toString(36).substr(2, 9), 
             name: name.trim(),  
-            quantity: parseInt(quantity),
-            category: category // 
+            quantity: parseInt(quantity, 10),
+            category: category
         };
 
         onAddItem(newItem);
 
+        
         setName("");
         setQuantity("1");
-        setCategory("Produce");
+        setCategory("produce");
     };
 
     return (
@@ -76,7 +76,7 @@ export default function NewItem({ onAddItem }) {
                         type="submit"
                         className="w-full mt-4 py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
                     >
-                        +
+                        Add Item
                     </button>
                 </div>
             </form>
